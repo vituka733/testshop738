@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  </head>
-  <body>
-    <h1>Тест WebApp</h1>
-    <button onclick="sendTest()">Надіслати тест</button>
+<script>
+function sendOrder(productId, productName, price) {
+    let orderData = { id: productId, name: productName, price: price };
+    console.log("🟢 Надсилаємо:", orderData);
 
-    <script>
-      function sendTest() {
-        const testData = { test: true, msg: "Це тест" };
-        console.log("⬆️ Надсилаємо в бот:", testData);
-        Telegram.WebApp.sendData(JSON.stringify(testData));
-      }
-    </script>
-  </body>
-</html>
+    Telegram.WebApp.sendData(JSON.stringify(orderData)); // Надсилаємо
+
+    // НЕ закривай Telegram.WebApp.close(); для тесту!
+}
+</script>
